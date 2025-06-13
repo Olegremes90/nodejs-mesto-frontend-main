@@ -1,0 +1,24 @@
+require('dotenv').config({ path: '.env.front' });
+
+const {
+    DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF = 'origin/master',
+} = process.env;
+
+module.exports = {
+    apps: [{
+        name: 'frontend',
+        script: './dist/index.js',
+    }],
+
+    // Настройка деплоя
+    deploy: {
+        production: {
+            user: DEPLOY_USER,
+            host: DEPLOY_HOST,
+            ref: DEPLOY_REF,
+            repo: 'https://github.com/Olegremes90/nodejs-mesto-frontend-main.git',
+            path: DEPLOY_PATH,
+            'pre-deploy-local': `scp .env.front ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
+            'post-deploy': 'export NODE_OPTIONS=--openssl-legacy-provider && source ~/.nvm/nvm.sh && npm install && npm run build && pm2 reload frontend',    },
+    },
+};
