@@ -8,7 +8,7 @@ module.exports = {
     apps: [{
         name: 'frontend',
         script: 'serve',  // Используем serve для раздачи статических файлов
-        args: '-s build -p 3000',  // Передаем аргументы как массив
+        args: ['-s', 'build', '--port', '3000'],  // Передаем аргументы как массив
         cwd: DEPLOY_PATH,  // Указываем директорию, где будет папка build
         env: {
             NODE_ENV: 'production'
