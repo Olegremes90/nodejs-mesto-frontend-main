@@ -12,11 +12,11 @@ module.exports = {
         {
             name: 'frontend',
             script: 'serve',
-            args: ['-s', 'build', '-l', '3000'], // раздача статических файлов из build на порту 3000
+            args: ['-s', 'build', '-l', '3001'], // раздача статических файлов из build на порту 3000
             cwd: DEPLOY_PATH,                    // директория проекта на сервере (где есть папка build)
             env: {
                 NODE_ENV: 'production',
-                PORT: 3000,
+                PORT: 3001,
             },
             watch: false
         }
