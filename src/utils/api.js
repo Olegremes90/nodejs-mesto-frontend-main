@@ -139,6 +139,6 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('https://mesto.students.nomorepartiessbs.ru');
+  const api = new Api('https://api.mesto.students.nomorepartiessbs.ru');
 
   export default api;
