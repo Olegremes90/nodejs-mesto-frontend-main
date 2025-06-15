@@ -29,7 +29,7 @@ module.exports = {
             ref: DEPLOY_REF,
             repo: 'https://github.com/Olegremes90/nodejs-mesto-frontend-main.git',
             path: DEPLOY_PATH,
-            'pre-deploy-local': `scp .env.front ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/.env`,
+            'pre-deploy-local': `scp .env.front ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source/.env.front`,
             'post-deploy': 'export NODE_OPTIONS=--openssl-legacy-provider && source ~/.nvm/nvm.sh && npm install && npm run build && pm2 startOrReload ecosystem.config.js --only frontend',
             ssh_options: 'StrictHostKeyChecking=no',
         },
