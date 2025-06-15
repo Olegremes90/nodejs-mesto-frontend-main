@@ -11,8 +11,8 @@ module.exports = {
     apps: [
         {
             name: 'frontend',
-            script: 'serve',
-            args: ['-s', 'build', '-l', '3001'], // раздача статических файлов из build на порту 3000
+            script: 'npx',
+            args: ['serve', '-s', 'build', '-l', '3001'], // раздача статических файлов из build на порту 3000
             cwd: DEPLOY_PATH,                    // директория проекта на сервере (где есть папка build)
             env: {
                 NODE_ENV: 'production',
@@ -35,3 +35,4 @@ module.exports = {
         },
     },
 };
+
